@@ -52,4 +52,9 @@
 #define KEY_MENU                139     /* Menu (show menu) */
 #define KEY_BACK                158     /* AC Back */
 
+#define KEY_HOME		102
+#define KEY_VOLUMEDOWN		114
+#define KEY_VOLUMEUP		115
+#define KEY_SEARCH		217
+
 #endif
