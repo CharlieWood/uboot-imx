@@ -291,7 +291,7 @@ get_cluster(fsdata *mydata, __u32 clustnum, __u8 *buffer,
 
 	debug("gc - clustnum: %d, startsect: %d\n", clustnum, startsect);
 
-	if (disk_read(startsect, size / FS_BLOCK_SIZE, buffer) < 0) {
+	if (size >= FS_BLOCK_SIZE && disk_read(startsect, size / FS_BLOCK_SIZE, buffer) < 0) {
 		debug("Error reading data\n");
 		return -1;
 	}
