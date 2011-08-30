@@ -3280,6 +3280,22 @@ mx51_3stack_android_config	\
 mx51_3stack_config	: unconfig
 	@$(MKCONFIG) $(@:_config=) arm arm_cortexa8 mx51_3stack freescale mx51
 
+mx51_aster7_mfg_config \
+mx51_aster7_android_config	: unconfig
+	@$(MKCONFIG) $(@:_config=) arm arm_cortexa8 mx51_aster7 freescale mx51
+
+mx51_tulip_mfg_config             \
+mx51_tulip_android_config	: unconfig
+	@$(MKCONFIG) $(@:_config=) arm arm_cortexa8 mx51_tulip freescale mx51
+
+mx51_ivy_mfg_config             \
+mx51_ivy_android_config	: unconfig
+	@$(MKCONFIG) $(@:_config=) arm arm_cortexa8 mx51_ivy freescale mx51
+
+mx51_lvd_mfg_config             \
+mx51_lvd_android_config	: unconfig
+	@$(MKCONFIG) $(@:_config=) arm arm_cortexa8 mx51_lvd freescale mx51
+
 mx53_smd_mfg_config             \
 mx53_smd_android_config		\
 mx53_smd_config		:unconfig
