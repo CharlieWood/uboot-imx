@@ -294,6 +294,7 @@ __LIBS := $(subst $(obj),,$(LIBS)) $(subst $(obj),,$(LIBBOARD))
 
 # Always append ALL so that arch config.mk's can add custom ones
 ALL += $(obj)u-boot.srec $(obj)u-boot.bin $(obj)System.map $(U_BOOT_NAND) $(U_BOOT_ONENAND)
+ALL += $(obj)u-boot.img
 
 all:		$(ALL)
 
@@ -317,7 +318,7 @@ $(obj)u-boot.ldr.srec:	$(obj)u-boot.ldr
 		$(OBJCOPY) ${OBJCFLAGS} -O srec $< $@ -I binary
 
 $(obj)u-boot.img:	$(obj)u-boot.bin
-		./tools/mkimage -A $(ARCH) -T firmware -C none \
+		$(obj)tools/mkimage -A $(ARCH) -T firmware -C none \
 		-a $(TEXT_BASE) -e 0 \
 		-n $(shell sed -n -e 's/.*U_BOOT_VERSION//p' $(VERSION_FILE) | \
 			sed -e 's/"[	 ]*$$/ for $(BOARD) board"/') \
