@@ -1089,6 +1089,7 @@ static int mmc_startup(struct mmc *mmc)
 			(mmc->cid[2] >> 24) & 0xf);
 	init_part(&mmc->block_dev);
 
+	mmc->initialized = 1;
 	return 0;
 }
 
@@ -1142,6 +1143,12 @@ block_dev_desc_t *mmc_get_dev(int dev)
 int mmc_init(struct mmc *mmc)
 {
 	int err;
+
+	/*
+	 * Check if already initialized
+	 */
+	if (mmc->initialized)
+		return 0;
 
 	err = mmc->init(mmc);
 

@@ -289,6 +289,7 @@ struct mmc {
 	uint boot_size_mult;
 #endif
 	block_dev_desc_t block_dev;
+	uint initialized;
 	int (*send_cmd)(struct mmc *mmc,
 			struct mmc_cmd *cmd, struct mmc_data *data);
 	void (*set_ios)(struct mmc *mmc);
