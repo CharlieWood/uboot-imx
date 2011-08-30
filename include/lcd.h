@@ -270,6 +270,9 @@ void	lcd_disable	(void);
 void	lcd_putc	(const char c);
 void	lcd_puts	(const char *s);
 void	lcd_printf	(const char *fmt, ...);
+void	lcd_clear_screen(void);
+void	lcd_setfgcolor  (int color);
+void	lcd_setbgcolor  (int color);
 
 /* Allow boards to customize the information displayed */
 void lcd_show_board_info(void);
@@ -353,6 +356,9 @@ void lcd_show_board_info(void);
  */
 # define CONSOLE_COLOR_BLACK	0x0000
 # define CONSOLE_COLOR_WHITE	0xffff	/* Must remain last / highest	*/
+# define CONSOLE_COLOR_RED	0xf800
+# define CONSOLE_COLOR_GREEN	0x07e0
+# define CONSOLE_COLOR_BLUE	0x001f
 
 #endif /* color definitions */
 

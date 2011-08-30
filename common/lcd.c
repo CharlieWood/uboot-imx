@@ -84,8 +84,6 @@ static int lcd_clear (cmd_tbl_t * cmdtp, int flag, int argc, char *argv[]);
 static void *lcd_logo (void);
 
 static int lcd_getbgcolor (void);
-static void lcd_setfgcolor (int color);
-static void lcd_setbgcolor (int color);
 
 char lcd_is_enabled = 0;
 
@@ -481,9 +479,9 @@ ulong lcd_setmem (ulong addr)
 
 /*----------------------------------------------------------------------*/
 
-static void lcd_setfgcolor (int color)
+void lcd_setfgcolor (int color)
 {
-#if defined(CONFIG_ATMEL_LCD) || defined(CONFIG_MXC2_LCD)
+#if defined(CONFIG_ATMEL_LCD) || defined(CONFIG_MXC2_LCD) || defined(CONFIG_VIDEO_MX5)
 	lcd_color_fg = color;
 #else
 	lcd_color_fg = color & 0x0F;
@@ -492,7 +490,7 @@ static void lcd_setfgcolor (int color)
 
 /*----------------------------------------------------------------------*/
 
-static void lcd_setbgcolor (int color)
+void lcd_setbgcolor (int color)
 {
 #if defined(CONFIG_ATMEL_LCD) || defined(CONFIG_MXC2_LCD) || defined(CONFIG_VIDEO_MX5)
 	lcd_color_bg = color;
@@ -905,6 +903,11 @@ static void *lcd_logo (void)
 #else
 	return ((void *)lcd_base);
 #endif /* CONFIG_LCD_LOGO && !CONFIG_LCD_INFO_BELOW_LOGO */
+}
+
+void lcd_clear_screen(void)
+{
+	lcd_clear (NULL, 1, 1, NULL);	/* dummy args */
 }
 
 /************************************************************************/
