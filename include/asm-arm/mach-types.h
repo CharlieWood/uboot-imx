@@ -3253,6 +3253,11 @@ extern unsigned int __machine_arch_type;
 #define MACH_TYPE_LQ2                  3271
 #define MACH_TYPE_SWEDA_TMS2           3272
 #define MACH_TYPE_MX53_LOCO            3273
+#define MACH_TYPE_MX51_TULIP           3459
+#define MACH_TYPE_MX51_IVY             3547
+#define MACH_TYPE_MX51_LVD             3548
+
+#define MACH_TYPE_MX51_ASTER7          9527
 
 #ifdef CONFIG_ARCH_EBSA110
 # ifdef machine_arch_type
@@ -42144,6 +42149,54 @@ extern unsigned int __machine_arch_type;
 # define machine_is_mx53_loco()	(machine_arch_type == MACH_TYPE_MX53_LOCO)
 #else
 # define machine_is_mx53_loco()	(0)
+#endif
+
+#ifdef CONFIG_MACH_MX51_ASTER7
+# ifdef machine_arch_type
+#  undef machine_arch_type
+#  define machine_arch_type     __machine_arch_type
+# else
+#  define machine_arch_type     MACH_TYPE_MX51_ASTER7
+# endif
+# define machine_is_mx51_aster7() (machine_arch_type == MACH_TYPE_MX51_ASTER7)
+#else
+# define machine_is_mx51_aster7() (0)
+#endif
+
+#ifdef CONFIG_MACH_MX51_TULIP
+# ifdef machine_arch_type
+#  undef machine_arch_type
+#  define machine_arch_type     __machine_arch_type
+# else
+#  define machine_arch_type     MACH_TYPE_MX51_TULIP
+# endif
+# define machine_is_mx51_tulip() (machine_arch_type == MACH_TYPE_MX51_TULIP)
+#else
+# define machine_is_mx51_tulip() (0)
+#endif
+
+#ifdef CONFIG_MACH_MX51_IVY
+# ifdef machine_arch_type
+#  undef machine_arch_type
+#  define machine_arch_type     __machine_arch_type
+# else
+#  define machine_arch_type     MACH_TYPE_MX51_IVY
+# endif
+# define machine_is_mx51_ivy() (machine_arch_type == MACH_TYPE_MX51_IVY)
+#else
+# define machine_is_mx51_ivy() (0)
+#endif
+
+#ifdef CONFIG_MACH_MX51_LVD
+# ifdef machine_arch_type
+#  undef machine_arch_type
+#  define machine_arch_type     __machine_arch_type
+# else
+#  define machine_arch_type     MACH_TYPE_MX51_LVD
+# endif
+# define machine_is_mx51_lvd() (machine_arch_type == MACH_TYPE_MX51_LVD)
+#else
+# define machine_is_mx51_lvd() (0)
 #endif
 
 /*
